@@ -11,7 +11,8 @@ from .serializer import FilmWorkSerializer
 class FilmWorkApiViewMixin:
     """Класс миксин"""
     queryset = FilmWork.objects.prefetch_related(
-        'genres', 'persons').values().all().annotate(
+        'genres', 'persons',
+    ).values().all().annotate(
         genres=ArrayAgg(
             'genres__name', distinct=True
         ),
@@ -25,7 +26,7 @@ class FilmWorkApiViewMixin:
             filter=Q(personfilmwork__role__icontains=RoleChoices.DIRECTOR),
             distinct=True,
         ),
-        writers=ArrayAgg(
+        screenwriters=ArrayAgg(
             'persons__full_name',
             filter=Q(personfilmwork__role__icontains=RoleChoices.SCREENWRITER),
             distinct=True,

@@ -70,8 +70,8 @@ class FilmWork(UUIDMixin, TimeStampedMixin):
 
     class Meta:
         db_table = 'content"."film_work'
-        verbose_name = _("FilmWork")
-        verbose_name_plural = _("FilmWorks")
+        verbose_name = _("film work")
+        verbose_name_plural = _("film works")
 
     def __str__(self):
         return self.title

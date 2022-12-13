@@ -1,3 +1,4 @@
+from config.settings import DEBUG
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -9,5 +10,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'movies.apps.MoviesConfig',
-    'debug_toolbar',
 ]
+
+if DEBUG:
+    INSTALLED_APPS += [
+        'debug_toolbar',
+    ]

@@ -1,8 +1,9 @@
-from django.conf import settings
+from config.components import installed_apps, middleware
+from config.settings import DEBUG
 
 
-if settings.DEBUG:
-    settings.INSTALLED_APPS.append('debug_toolbar')
-    settings.MIDDLEWARE.append(
-        'debug_toolbar.middleware.DebugToolbarMiddleware'
-    )
+if DEBUG:
+    installed_apps.INSTALLED_APPS += ['debug_toolbar']
+    middleware.MIDDLEWARE += [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    ]

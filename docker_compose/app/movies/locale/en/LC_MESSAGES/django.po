@@ -107,8 +107,8 @@ msgid "film work"
 msgstr "film work"
 
 #: movies/models.py:97
-msgid "films work"
-msgstr "films work"
+msgid "film works"
+msgstr "film works"
 
 #: movies/models.py:118
 msgid "role"
