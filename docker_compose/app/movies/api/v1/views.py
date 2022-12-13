@@ -10,7 +10,8 @@ from .serializer import FilmWorkSerializer
 
 class FilmWorkApiViewMixin:
     """Класс миксин"""
-    queryset = FilmWork.objects.values().all().annotate(
+    queryset = FilmWork.objects.prefetch_related(
+        'genres', 'persons').values().all().annotate(
         genres=ArrayAgg(
             'genres__name', distinct=True
         ),
