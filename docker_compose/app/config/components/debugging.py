@@ -6,4 +6,3 @@ if settings.DEBUG:
     settings.MIDDLEWARE.append(
         'debug_toolbar.middleware.DebugToolbarMiddleware'
     )
-

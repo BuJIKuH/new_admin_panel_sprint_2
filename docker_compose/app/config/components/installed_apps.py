@@ -1,4 +1,3 @@
-from config.settings import DEBUG
 
 INSTALLED_APPS = [
     'django.contrib.admin',
