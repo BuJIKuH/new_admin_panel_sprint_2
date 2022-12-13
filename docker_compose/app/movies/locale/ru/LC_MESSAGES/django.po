@@ -106,11 +106,11 @@ msgid "type"
 msgstr "тип"
 
 #: movies/models.py:96 movies/models.py:103 movies/models.py:115
-msgid "film work"
+msgid "FilmWork"
 msgstr "кинопроизведение"
 
 #: movies/models.py:97
-msgid "films work"
+msgid "FilmWorks"
 msgstr "кинопроизведения"
 
 #: movies/models.py:118
