@@ -12,17 +12,18 @@ ENV DJANGO_SETTINGS_MODULE 'config.settings'
 RUN apt-get update && apt-get install -y netcat
 COPY requirements.txt requirements.txt
 COPY uwsgi/uwsgi.ini uwsgi.ini
+COPY ./entrypoint.sh entrypoint.sh
 
 
-RUN  mkdir -p /var/www/static/ \
-    && mkdir -p /var/www/media/ \
-    && mkdir -p /opt/app/static/ \
+RUN  mkdir -p /opt/app/static/ \
     && mkdir -p /opt/app/media/ \
     && python -m pip install --upgrade pip \
     && python -m pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-RUN python manage.py collectstatic --no-input
+
+RUN chmod +x entrypoint.sh
 
 EXPOSE 8000
-ENTRYPOINT ["uwsgi", "--strict", "--ini", "uwsgi.ini"]
+
+ENTRYPOINT ["/opt/app/entrypoint.sh"]

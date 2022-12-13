@@ -25,6 +25,7 @@ DEBUG = os.environ.get('DEBUG', False) == 'True'
 # Quick-start development settings - unsuitable for production
 
 include(
+    'components/debugging.py',
     'components/database.py',
     'components/installed_apps.py',
     'components/middleware.py',
