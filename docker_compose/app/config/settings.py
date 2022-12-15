@@ -38,6 +38,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 ROOT_URLCONF = 'config.urls'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', "127.0.0.1").split(' ')
+CSRF_TRUSTED_ORIGINS = [os.environ.get('CSRF_TRUSTED_ORIGINS').split(' ')]
 
 TEMPLATES = [
     {
